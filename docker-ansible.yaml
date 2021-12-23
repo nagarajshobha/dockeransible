@@ -21,8 +21,8 @@
        state: present
    - name: start container
      docker_container:
-        name: ansiblepipe
-        image: "nagarajshobha/ansiblepipe:${gitcommit}"
+        name: ansiblepipe1
+        image: "nagarajshobha/ansiblepipe:${gitCommit}"
         state: started
         published_ports:
           - 0.0.0.0:8080:8080

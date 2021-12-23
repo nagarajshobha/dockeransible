@@ -16,7 +16,7 @@
        state: started
        enabled: yes
    - name: install docker py
-     yum:
+     pip:
        name: docker-py
        state: present
    - name: start container

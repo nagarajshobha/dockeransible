@@ -1,0 +1,29 @@
+- name : docker conatiner depoy using ansible
+  hosts: dev
+  become: true
+  tasks:
+   - name : install pip
+     yum:
+      name: python-pip
+      state: present
+   - name: docker install
+     yum: 
+      name: docker
+      state: present
+   - name: docker start 
+     service:
+       name: docker
+       state: started
+       enabled: yes
+   - name: install docker py
+     yum:
+       name: docker-py
+       state: present
+   - name: start container
+     docker_container:
+        name: ansiblepipe
+        image: "nagarajshobha/ansiblepipe:${gitcommit}"
+        state: started
+        published_ports:
+          - 0.0.0.0:8080:8080
+
